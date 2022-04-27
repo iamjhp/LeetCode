@@ -10,9 +10,8 @@ class Solution:
             return True
         
         reversed_x = 0
-        copied_x = x
-        while copied_x > 0:
-            reversed_x = reversed_x * 10 + copied_x % 10
-            copied_x = copied_x // 10
+        while x > reversed_x:
+            reversed_x = reversed_x * 10 + x % 10
+            x = x // 10
             
-        return True if (x == reversed_x) else False
+        return True if (x == reversed_x or x == reversed_x // 10) else False
