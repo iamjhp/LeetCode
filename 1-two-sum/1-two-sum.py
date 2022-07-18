@@ -1,15 +1,10 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        if len(nums) == 2:
-            return [0, 1]
+        d = {}
         
-        seen = {}
-        for i in range(len(nums)):
-            remaining = target - nums[i]
+        for i, n in enumerate(nums):
+            m = target - n
+            if m in d:
+                return [d[m], i]
             
-            if remaining in seen:
-                return [seen[remaining], i]
-            
-            seen[nums[i]] = i
-
-            
+            d[n] = i
